@@ -228,5 +228,90 @@
             "Artificial Intelligence",
             "Machine Learning"
         ]
+    },
+    {
+        "event": "Farewell",
+        "interests": [
+            "AI"
+        ],
+        "generated": [
+            "Networking",
+            "Technology",
+            "Innovation"
+        ]
+    },
+    {
+        "event": "AI",
+        "interests": [
+            "AI"
+        ],
+        "generated": [
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "event": "FAREWELL",
+        "interests": [
+            "AI"
+        ],
+        "generated": [
+            "Networking",
+            "Technology",
+            "Innovation"
+        ]
+    },
+    {
+        "event": "AI is the capability of computational systems to perform tasks typically assoicated with human intelligence",
+        "interests": [
+            "Ai"
+        ],
+        "generated": [
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "event": "AI is the capability of computational systems to perform tasks typically associated with human intelligence",
+        "interests": [
+            "Ai"
+        ],
+        "generated": [
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "event": "AI is the capability of computational systems to perform tasks typically associated with human intelligence.",
+        "interests": [
+            "Leadership"
+        ],
+        "generated": [
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "event": "AI is the capability of computational systems to perform tasks typically associated with human intelligence.",
+        "interests": [
+            "Reading boobs"
+        ],
+        "generated": [
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "event": "AI is the capability of computational systems to perform tasks typically associated with human intelligence.",
+        "interests": [
+            "Reading books"
+        ],
+        "generated": [
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "event": "AI is the capability of computational systems to perform tasks typically associated with human intelligence.",
+        "interests": [
+            "Reading books"
+        ],
+        "generated": [
+            "Artificial Intelligence"
+        ]
     }
 ]
