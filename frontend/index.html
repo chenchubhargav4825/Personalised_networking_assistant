@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personalized Networking Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AI-powered networking</p>
+          <h1>Personalized Networking Assistant</h1>
+          <p class="subtitle">
+            Create sharper conversation starters and verify quick facts before your next event.
+          </p>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel">
+          <h2>Generate Conversation Starters</h2>
+          <form id="starter-form">
+            <label for="event">Event description</label>
+            <textarea id="event" rows="5" required></textarea>
+
+            <label for="interests">Your interests</label>
+            <input id="interests" type="text" placeholder="AI, leadership, startups" />
+
+            <button type="submit">Generate ideas</button>
+          </form>
+          <div id="starter-result" class="result-card"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Verify a Fact</h2>
+          <form id="fact-form">
+            <label for="topic">Topic</label>
+            <input id="topic" type="text" placeholder="Neural networks" required />
+            <button type="submit">Verify</button>
+          </form>
+          <div id="fact-result" class="result-card"></div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const starterForm = document.getElementById("starter-form");
+      const factForm = document.getElementById("fact-form");
+      const starterResult = document.getElementById("starter-result");
+      const factResult = document.getElementById("fact-result");
+
+      starterForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        starterResult.innerHTML = "Generating...";
+
+        const payload = {
+          description: document.getElementById("event").value,
+          interests: document.getElementById("interests").value
+            .split(",")
+            .map((item) => item.trim())
+            .filter(Boolean),
+        };
+
+        const response = await fetch("/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+        const topics = data.topics || [];
+
+        starterResult.innerHTML = `
+          <h3>Suggested conversation starters</h3>
+          <ul>
+            ${topics.map((topic) => `<li>${topic}</li>`).join("")}
+          </ul>
+        `;
+      });
+
+      factForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        factResult.innerHTML = "Checking...";
+
+        const response = await fetch("/fact-check", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ topic: document.getElementById("topic").value }),
+        });
+
+        const data = await response.json();
+        factResult.innerHTML = `
+          <h3>${data.status || "Result"}</h3>
+          <p>${data.summary || "No summary available."}</p>
+        `;
+      });
+    </script>
+  </body>
+</html>

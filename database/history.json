@@ -217,5 +217,16 @@
             "Artificial Intelligence",
             "Machine Learning"
         ]
+    },
+    {
+        "event": "Join our AI and machine learning meetup",
+        "interests": [
+            "AI",
+            "startups"
+        ],
+        "generated": [
+            "Artificial Intelligence",
+            "Machine Learning"
+        ]
     }
 ]
